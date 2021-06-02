@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(a,c){
+    console.log(a);
+    var a=123;
+    console.log(a);
+    console.log(c);
+    function a(){}//函数声明
+    if(false){
+        var b=678;
+    }
+    // console.log(d);//为什么这个地方报错就没办法输出了啊，undefined也是报错的嘛？
+    console.log(b);
+    var b=function(){}//函数表达式
+    console.log(b);
+    function c(){}//函数声明
+    console.log(c);
+}
+fn(1,2)
+    </script>
+</body>
+</html>
