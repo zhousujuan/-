@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js-this的面试题(大厂面试题)-阿里巴巴</title>
+</head>
+<body>
+    <script>
+
+        //阿里巴巴面试题
+        var name=222
+        var a={
+            name:111,
+            say:function(){
+                console.log(this.name);
+            }
+        }
+        var fun=a.say
+        //该调用属于:函数的直接使用==》fun.call(window)==》输出：222
+        fun()//222
+        //可以看作a.say.call(a)==》输出：111
+        a.say()//111
+
+        var b={
+            name:333,
+            say:function(fun){
+                fun()
+            }
+        }
+
+        //a.say是传入的参数==》
+        /*
+        var b={
+            name:333,
+            say:function(fun){
+                fun()//fun.call(window)
+            }
+        }
+        
+        */
+        b.say(a.say)//222
+        b.say=a.say
+        b.say()//333
+    </script>
+</body>
+</html>
